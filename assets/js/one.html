@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .login-container {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container login-container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                            <div class="invalid-feedback">Please enter your username.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Form validation
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var username = document.getElementById('username');
+        var password = document.getElementById('password');
+
+        if (username.value === "") {
+            username.classList.add('is-invalid');
+        } else {
+            username.classList.remove('is-invalid');
+        }
+
+        if (password.value === "") {
+            password.classList.add('is-invalid');
+        } else {
+            password.classList.remove('is-invalid');
+        }
+
+        if (username.value && password.value) {
+            // Perform login (for demonstration purposes, we'll just log the values)
+            console.log('Username:', username.value);
+            console.log('Password:', password.value);
+            alert('Login successful!');
+        }
+    });
+</script>
+</body>
+</html>
